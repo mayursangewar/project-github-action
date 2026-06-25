@@ -83,6 +83,9 @@ jobs:
       with:
         name: app-jar
         path: target/*.jar 
+ 
+    - name: Build and copy dependencies
+      run: mvn -B clean compile dependency:copy-dependencies
 
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v5.0.0 # Ex: v8.2.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
